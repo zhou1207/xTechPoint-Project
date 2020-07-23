@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Profile Page</h2>
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{ username }}</td>
+        </tr>
+        <tr>
+            <td>School:</td>
+            <td>{{ school }}</td>
+        </tr>
+        <tr>
+            <td>Full Name:</td>
+            <td>{{ fullname }}</td>
+        </tr>
+        <tr>
+            <td>School Email:</td>
+            <td>{{ email }}</td>
+        </tr>
+        <tr>
+            <td>Major:</td>
+            <td>{{ major }}</td>
+        </tr>
+        <tr>
+            <td>Course:</td>
+            <td><table>
+                {% for row in course %}
+                <table>
+                    <th>{{ row[0] }}</th>
+                </table>
+                {% endfor %}
+                </table>
+            </td></table>
+        </tr>
+    </table>
+</div>
+{% endblock %}

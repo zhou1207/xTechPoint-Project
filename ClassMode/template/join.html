@@ -1,0 +1,35 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}Join a Chat{% endblock %}
+
+{% block content %}
+
+<h2>Join a Chat</h2>
+<div>
+	<p>Enter your full name and the room id. Then click Join a chat room:</p>
+	<table>
+		<form action="{{ url_for('join') }}" method="post" autocomplete="off">
+			<tr>
+			<div class="links">
+				<td><a href="{{ url_for('chat') }}" class="active">Create a chat room</a></td>
+				<td><a href="{{url_for('join')}}" class="active">Join a chat room</a></td>
+			</div>
+			</tr>
+			<label for="fullname">
+				<i class="fas fa-user"></i>
+			</label>
+				<input type="text" name="fullname" placeholder="FullName" id="fullname" required>       <!Comment: input field for fullname>
+			<label for="roomid">
+				<i class="fas fa-igloo"></i>
+			</label>
+            	<input type="number" name="roomid" placeholder="RoomID" id="roomid" required>
+				<div class="msg">{{ msg }}</div>
+			<tr>
+                <td><input type="submit" value="Join"></td>
+            </tr>
+        </form>
+	</table>
+</div>
+
+{% endblock %}

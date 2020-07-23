@@ -1,0 +1,47 @@
+
+{% extends 'layout.html' %}
+
+{% block title %}Find Matches{% endblock %}
+
+{% block content %}
+
+<h2>Find Matches Page</h2>
+<div>
+    <p>Enter the class you would like to find a match for. Then click Search:</p>
+    <table>
+        <form action="{{ url_for('search') }}" method="post" autocomplete="off">
+            <label for="coursename">Please enter a course:</label>>
+            <tr>
+                <td><input type="text" name="coursename" placeholder="CourseName" id="coursename" required></td>
+
+                <td><div class="msg">{{ msg }}</div></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Search"></td>
+            </tr>
+            <tr>
+                <td>Match pairs:</td>
+            </tr>
+            <table>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Full Name</th>
+                    <th>School Email</th>
+                    <th>School</th>
+                    <th>Major</th>
+                </tr>
+                    {% for row in match %}
+                    <tr>
+                        <td>{{ coursename }}</td>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[3] }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
+        </form>
+    </table>
+</div>
+
+{% endblock %}
